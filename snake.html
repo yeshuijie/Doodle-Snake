@@ -1,0 +1,67 @@
+<canvas id="myCanvas" width="200" height="700"></canvas>
+
+<script type="text/javascript">
+        var canvas = document.getElementById("myCanvas");
+        var ctx = this.canvas.getContext('2d');
+
+        /*
+         * 功能：初始化蛇的形象
+         * 时间：2017－09－02
+         * 作者：黄欢欢
+         */
+        var init_snake = function (snake) {
+            ctx.fillStyle = snake.color_heard;
+            ctx.fillRect(snake.x, snake.y, 20, 20);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(snake.x + 4, snake.y + 3, 3, 3);
+            ctx.fillRect(snake.x + 13, snake.y + 3, 3, 3);
+            ctx.fillStyle = snake.color_tail;
+            ctx.fillRect(snake.x + 5, snake.y + 20, 10, 20);
+        }
+
+        /*
+         * 功能：蛇的移动
+         * 时间：2017-09-02
+         * 作者：黄欢欢
+         */
+        var remove_snake = function () {
+            var snake1=new snake(40,650,'#ccddcc','#dd5200');
+            setInterval(function () {
+                console.log(1);
+                replace_snake(snake1);
+            }, 10);
+        }
+
+
+        var replace_snake=function (snake1) {
+            this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+            init_snake(snake1);
+
+            snake1.y--;
+        }
+
+    function snake(x, y, color_heard, color_tail) {
+        this.x = x;
+        this.y = y;
+        this.color_heard = color_heard;
+        this.color_tail = color_tail;
+
+    }
+        remove_snake();
+
+ /*var count = 0;
+ var timeID;
+ function timeCount()
+ {
+     document.getElementByIdx('timetxt').value = count;
+     count++;
+ }
+ function beginCount()
+ {
+     timeID = setInterval("timeCount()",1000);
+ }
+ function stopCount()
+ {
+     clearInterval(timeID);
+ }*/
+</script>
